@@ -178,12 +178,12 @@ namespace Mooege.Common
 
         public override void LogMessage(Level level, string logger, string message)
         {
-            this._logStream.WriteLine(string.Format("[{0}] [{1}]: {2}", level.ToString().PadLeft(5), logger, message));
+            this._logStream.WriteLine(string.Format("[{0}] [{1}] [{2}]: {3}", DateTime.Now.ToLongTimeString(), level.ToString().PadLeft(5), logger, message));
         }
 
         public override void LogException(Level level, string logger, string message, Exception exception)
         {
-            this._logStream.WriteLine(string.Format("[{0}] [{1}]: {2} - [Exception] {3}", level.ToString().PadLeft(5), logger, message, exception));
+            this._logStream.WriteLine(string.Format("[{0}] [{1}] [{2}]: {3} - [Exception] {4}", DateTime.Now.ToLongTimeString(), level.ToString().PadLeft(5), logger, message, exception));
         }
 
         #region de-ctor
@@ -234,13 +234,13 @@ namespace Mooege.Common
         public override void LogMessage(Level level, string logger, string message)
         {
             SetForeGroundColor(level);
-            Console.WriteLine(string.Format("[{0}] [{1}]: {2}", level.ToString().PadLeft(5), logger, message));
+            Console.WriteLine(string.Format("[{0}] [{1}] [{2}]: {3}", DateTime.Now.ToLongTimeString(), level.ToString().PadLeft(5), logger, message));
         }
 
         public override void LogException(Level level, string logger, string message, Exception exception)
         {
             SetForeGroundColor(level);
-            Console.WriteLine(string.Format("[{0}] [{1}]: {2} - [Exception] {3}", level.ToString().PadLeft(5), logger, message, exception));
+            Console.WriteLine(string.Format("[{0}] [{1}] [{2}]: {3} - [Exception] {4}", DateTime.Now.ToLongTimeString(), level.ToString().PadLeft(5), logger, message, exception));
         }
 
         private static void SetForeGroundColor(Level level)
